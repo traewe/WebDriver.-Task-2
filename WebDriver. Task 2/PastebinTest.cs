@@ -34,6 +34,18 @@ namespace PastebinTest
             Assert.That(pastebinPage.IsPasteTextCreatedSuccessfully(), Is.EqualTo(true));
         }
 
+        [Test]
+        public void CreateNewPaste_PasteTextParameterIsNull_ThrowsException()
+        {
+            Assert.Throws<ArgumentNullException>(() => pastebinPage.CreateNewPaste(null, "string"));
+        }
+
+        [Test]
+        public void CreateNewPaste_TitleParameterIsNull_ThrowsException()
+        {
+            Assert.Throws<ArgumentNullException>(() => pastebinPage.CreateNewPaste([" "], null));
+        }
+
         [TearDown]
         public void Teardown()
         {

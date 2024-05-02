@@ -23,6 +23,15 @@ namespace PastebinTest
 
         public void CreateNewPaste(string[] pasteText, string title)
         {
+            if (pasteText == null)
+            {
+                throw new ArgumentNullException(nameof(pasteText));
+            }
+            if (title == null)
+            {
+                throw new ArgumentNullException(nameof(title));
+            }
+
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
             var newPasteElement = wait.Until(ExpectedConditions.ElementIsVisible(By.Id("postform-text")));
 
