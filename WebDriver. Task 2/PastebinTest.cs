@@ -18,7 +18,7 @@ namespace PastebinTest
         }
 
         [Test]
-        public void CreateNewPaste_ParameterAreValid_ReturnsCorrectData()
+        public void CreateNewPaste_ParametersAreValid_ReturnsCorrectData()
         {
             pastebinPage.Open();
 
@@ -31,7 +31,7 @@ namespace PastebinTest
                 && pastebinPage.IsPasteNameCreatedSuccessfully()
                 && pastebinPage.IsSyntaxHighlightingCreatedSuccessfully();
 
-            Assert.That(pastebinPage.IsPasteTextCreatedSuccessfully(), Is.EqualTo(true));
+            Assert.That(generalTestingResult, Is.EqualTo(true));
         }
 
         [Test]
